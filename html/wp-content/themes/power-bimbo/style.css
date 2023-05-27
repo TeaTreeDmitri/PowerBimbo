@@ -1,0 +1,101 @@
+/*
+Theme Name:   Power Bimbo
+Theme URI:    http://supertusch.dk/theme/power-bimbo/
+Description:  Basically Bootstrap 5 Child Theme created for Power Bimbo
+Author:       Supertusch
+Author URI:   http://supertusch.dk
+Template:     basically-bootstrap-5
+Version:      1.0.0
+Domain Path: /languages/
+Text Domain:  powerbimbo
+*/
+
+/* font imports */
+
+@font-face {
+  font-family: 'Open-Sans-Regular';
+  src: url('/wp-content/themes/power-bimbo/assets/fonts/Open_Sans/static/OpenSans-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  font-family: 'Open-Sans-Regular';
+}
+
+/* 
+
+h1 ???
+
+h2  (news section titles and drop down)
+open sans
+semi bold
+size 60
+
+h3 (card section title)
+open sans
+semi bold
+size 54
+
+h3.textSection 
+open sans
+bold
+size 54
+
+h4 (full width quote)
+open sans
+semi bold
+size 40
+
+h4.textSection .subtitle 
+open sans
+semi-bold
+size 36
+
+
+h4.textSection .quote 
+open Sans
+bold
+size 36
+
+h5 (card content title / card section sub-title)
+open sans
+semi bold
+size 27
+
+h5.listHeading
+open sans
+regular
+size 27
+
+.quotee 
+open sans
+italic light (italic if white on blue)
+size 18
+
+
+body
+open sans
+regular (semi bold if white on blue)
+size 18 
+
+
+CTA
+open sans
+semi bold
+size 20
+ */
+
+:root {
+  /* colour vasriables  */
+  --blue: #103ee3;
+  --pale-blue: #f5fbff;
+  --white: #fff;
+  --black: #000;
+  /* font variables */
+}
+
+body {
+  background-color: var(--white);
+}
