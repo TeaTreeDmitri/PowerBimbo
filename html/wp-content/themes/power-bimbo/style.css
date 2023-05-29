@@ -10,6 +10,22 @@ Domain Path: /languages/
 Text Domain:  powerbimbo
 */
 
+/* variables */
+
+:root {
+  /* colour vasriables  */
+  --blue: #103ee3;
+  --mid-blue: #cdeaff;
+  --pale-blue: #f5fbff;
+  --white: #fff;
+  --black: #000;
+  /* font variables */
+}
+
+body {
+  background-color: var(--white);
+}
+
 /* font imports */
 
 @font-face {
@@ -20,8 +36,193 @@ Text Domain:  powerbimbo
   font-display: swap;
 }
 
+/* ********** Generic STYLING ********** */
+
 * {
   font-family: 'Open-Sans-Regular';
+  box-sizing: border-box;
+}
+
+.darkBlue {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+.darkBlue h3 {
+  color: var(--mid-blue);
+}
+
+.lightBlue {
+  background-color: var(--pale-blue);
+  color: var(--black);
+}
+
+.leftToRight {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.blockContainer {
+  margin: 0 0 8rem 0;
+  max-height: 80vh;
+  overflow-y: hidden;
+  display: grid;
+  place-content: center;
+}
+
+/* ********** Text Picture container STYLING ********** */
+
+.textPicPortrait {
+  display: flex;
+  max-height: 100%;
+}
+
+.textPicLandscape {
+  max-width: 840px;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  background-color: var(--blue);
+}
+
+.bottomToTop {
+  border-bottom: var(--blue) solid 10px;
+}
+
+.topToBottom {
+  border-top: var(--blue) solid 10px;
+}
+
+.textPicImgLandscape {
+  grid-column: 1 / -1;
+  grid-row: 1 / 10;
+  z-index: 1;
+}
+
+.topToBottom > .textPicTextLandscape {
+  grid-column: 2 / 7;
+  grid-row-start: 1;
+  height: 80%;
+}
+
+.topToBottom > .textPicImgLandscape {
+  grid-row: 2 / -1;
+}
+
+.textPicTextLandscape {
+  background-color: var(--pale-blue);
+  grid-column: 4 / 9;
+  grid-row: 2 / 11;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.textPicTextLandscape > h3 {
+  color: var(--blue);
+}
+
+.textPicTextLandscape > h2,
+.textPicTextLandscape > p {
+  color: var(--black);
+}
+
+.textPicMargins {
+  margin: 2rem 4rem 1rem 4rem;
+}
+
+.textPicImg {
+  width: 100%;
+  overflow: hidden;
+}
+
+.textPicTextContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.textPicTextLandscape {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+/* ********** Full Width Quote STYLING ********** */
+/*   width: 83.33333333%; */
+
+.fullWidthQuote {
+  width: 100vw;
+  height: 70vh;
+  display: grid;
+  row-gap: 4rem;
+  place-content: center;
+}
+
+.mainTextQuote {
+  max-width: 60ch;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.quoteContainer {
+  padding: 0 8.335% 0 8.335%;
+}
+
+.quotee {
+  font-style: italic;
+  text-align: end;
+}
+
+/* ********** Full Width Image STYLING ********** */
+
+.fullWidthImageContainer {
+  border-radius: 9999px;
+  max-height: 90%;
+  max-width: 70%;
+  margin: 0 auto 0 auto;
+  border: var(--blue) solid 10px;
+  overflow: hidden;
+}
+
+.fullWidthImg {
+  object-fit: contain;
+}
+
+/* ********** CTA BUTTON STYLING ********** */
+
+.textPicTextContainer .ctaButton {
+  margin-right: -4rem;
+  margin-left: auto;
+}
+
+.textPicTextLandscape .ctaButton {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.fullWidthQuote .ctaButton {
+  margin-left: auto;
+  margin-right: 8.335%;
+}
+
+.ctaButton {
+  background: none;
+  border: none;
+  border-bottom: 1px solid;
+  border-bottom-color: var(--white);
+  display: block;
+}
+
+.ctaButtonlightBlue {
+  color: var(--blue);
+  border-bottom-color: var(--blue);
+}
+
+.ctaButtondarkBlue {
+  color: var(--white);
 }
 
 /* 
@@ -86,16 +287,3 @@ open sans
 semi bold
 size 20
  */
-
-:root {
-  /* colour vasriables  */
-  --blue: #103ee3;
-  --pale-blue: #f5fbff;
-  --white: #fff;
-  --black: #000;
-  /* font variables */
-}
-
-body {
-  background-color: var(--white);
-}

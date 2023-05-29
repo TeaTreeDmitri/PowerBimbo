@@ -10,6 +10,6 @@ get_header();
 
 <div class="container">
   <div class="row">
-    <p>this is "working"</p>;
+    <p>this is "working"</p>
 </div>
 </div>

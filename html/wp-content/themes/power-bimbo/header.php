@@ -21,3 +21,8 @@
         <p>This is the header</p>
 </div>
 </header>
+<body <?php body_class(); ?>>
+    <div class="container-fluid page-container d-flex flex-column">
+        <?php get_template_part('/template-parts/content-header');
+        ?>
+        <main>
