@@ -8,7 +8,7 @@
 get_header();
 
 ?>
-<main>
+
   <div class="content">
     <div class="container">
       <div class="row">
@@ -29,5 +29,5 @@ get_header();
       </div>
     </div>
   </div>
-</main>
+
 <?php get_footer(); ?>

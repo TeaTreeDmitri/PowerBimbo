@@ -63,11 +63,23 @@ body {
 }
 
 .blockContainer {
-  margin: 0 0 8rem 0;
+  max-width: 100vw;
+  width: 100%;
+  margin: 0 0 4rem 0;
   max-height: 80vh;
+  max-width: 100vw;
   overflow-y: hidden;
   display: grid;
   place-content: center;
+}
+
+.sectionSubtitle {
+  color: var(--blue);
+  text-align: center;
+}
+
+.sectionTitle {
+  text-align: center;
 }
 
 /* ********** Text Picture container STYLING ********** */
@@ -191,6 +203,102 @@ body {
   object-fit: contain;
 }
 
+/* ********** Cards STYLING ********** */
+
+.cardContainer {
+  display: flex;
+  justify-content: space-evenly;
+  height: 70vh;
+}
+
+.customCard {
+  max-width: 25%;
+  background-color: var(--pale-blue);
+  height: 100%;
+}
+
+/* ********** Carousel STYLING ********** */
+
+.gallery-slider {
+  margin-left: 20vw;
+  max-width: 80vw;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+}
+
+.gallery-slider .customCard {
+  height: 50vh;
+  margin-right: 1rem;
+}
+
+.slick-dots {
+  place-content: center;
+  width: 100%;
+  grid-row: 2 / 3;
+  grid-column: 5 / 9;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0;
+  margin-left: -10vw;
+}
+
+.slick-prev,
+.slick-next {
+  position: absolute;
+  grid-row: 2 / 3;
+  background: none;
+  border: none;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 0px -11px;
+  height: 48px;
+  width: 48px;
+  margin-top: 0;
+  z-index: 10;
+}
+
+.slick-prev {
+  left: 10vw;
+  background-image: url(/wp-content/themes/power-bimbo/assets/graphics/Arrow_L.png);
+}
+
+.slick-next {
+  right: 30vw;
+  background-image: url(/wp-content/themes/power-bimbo/assets/graphics/Arrow_R.png);
+  justify-self: end;
+  background-position: right -11px;
+}
+
+.slick-list {
+  grid-row: 1 / 3;
+  grid-column: 1 / 13;
+  max-width: 100vw;
+}
+
+.slick-dots button {
+  opacity: 0;
+}
+
+.slick-dots li {
+  background-color: var(--black);
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  display: inline-block;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+li.slick-active {
+  background-color: var(--blue);
+}
+
+/*  .slick-dots 
+    .slick-prev
+    .slick-next
+*/
+
 /* ********** CTA BUTTON STYLING ********** */
 
 .textPicTextContainer .ctaButton {
@@ -214,6 +322,16 @@ body {
   border-bottom: 1px solid;
   border-bottom-color: var(--white);
   display: block;
+}
+
+.cardCTA {
+  background: none;
+  border: none;
+  border-bottom: 1px solid;
+  color: var(--blue);
+  border-bottom-color: var(--blue);
+  display: block;
+  margin-left: auto;
 }
 
 .ctaButtonlightBlue {
