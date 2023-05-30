@@ -12,7 +12,11 @@ require_once('inc/custom-content-types.php');
 
 register_nav_menus( array(
   'docs' => __( 'Documentation Menu', 'generatepress' ),
-  
 
 ) );
 
+//include secondary CSS for multiplayer working
+function custom_style_sheet() {
+    wp_enqueue_style( 'custom-styling', get_stylesheet_directory_uri() . '/style2.css' );
+    }
+    add_action('wp_enqueue_scripts', 'custom_style_sheet');

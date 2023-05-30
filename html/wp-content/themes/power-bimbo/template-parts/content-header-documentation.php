@@ -1,6 +1,6 @@
 <?php
 /**
-* The theme header page width.
+* The theme header-documentation page width.
 *
 * @package bootstrap-basic-5
 */
