@@ -4,6 +4,19 @@
   $ = jQuery;
 
   $(document).ready(function () {
+
+    $(window).trigger('resize');
+
+    //limit characters with className 'abbridged'
+    $('.abbridged').each(function() {
+      var text = $(this).text();
+      if (text.length > 150) {
+        text = text.substring(0, 100) + '...';
+      }
+      $(this).text(text);
+    });
+
+
     //add headingclass//
 
     $(".subjectHeading").on("click", function () {
@@ -55,26 +68,17 @@
       }
     });
 
-    // hamburger factory
+    
 
-    function hamburgerCheck() {
-      if ($(window).width() < 850) {
-        console.log("burger mode engaged");
-        $(".headerBurger").addClass("burgerMode");
-      } else {
-        console.log("burger mode destroyed");
-        $(".headerBurger").removeClass("burgerMode");
-      }
-    }
-
-    hamburgerCheck();
 
     // Hero section animations
 
     $(window).on("resize", heroAnim);
-
-    if ($(".heroSection")) {
-      function heroAnim() {
+    $(window).trigger('resize');
+    heroAnim();
+    
+    function heroAnim() {
+        if ($(".heroSection").length) {
         var $graphic4 = $("#blueRect4");
         var $graphic3 = $("#blueRect3");
         var $graphic2 = $("#blueRect2");
@@ -128,7 +132,7 @@
         $graphic4.addClass("fadeInClass");
       }
 
-      heroAnim();
+
 
       //mouse tracking animations
 
@@ -169,8 +173,8 @@
         $graphic2Move.css("transform", `translate(${pos2X}px, ${pos2Y}px)`);
         $graphic1Move.css("transform", `translate(${pos1X}px, ${pos1Y}px)`);
 
-        $(window).trigger('resize');
       }
+
 
       // Hero form funnctionality
 
@@ -186,50 +190,61 @@
         //showing only answer connected to the chosen ID by adding and removing hidden class
 
         if (whoID === "who1") {
-          console.log("who1 to show");
           $("#whereList").find(".where1answer").removeClass("hidden");
           $("#whereList").find(".where2answer").addClass("hidden");
           $("#whereList").find(".where3answer").addClass("hidden");
         } else if (whoID === "who2") {
-          console.log("who2 to show");
           $("#whereList").find(".where1answer").addClass("hidden");
           $("#whereList").find(".where2answer").removeClass("hidden");
           $("#whereList").find(".where3answer").addClass("hidden");
         } else if (whoID === "who3") {
-          console.log("who3 to show");
           $("#whereList").find(".where1answer").addClass("hidden");
           $("#whereList").find(".where2answer").addClass("hidden");
           $("#whereList").find(".where3answer").removeClass("hidden");
         }
       });
+
+      $(".whoWhere").on("change", "#whereList", function () {
+        var whereAnswer = $(this).find(":selected").data("id");
+        console.log("where are we going:" , whereAnswer);
+        var buttonDestination = $("#whoWhereButton");
+        buttonDestination.attr("href", whereAnswer);
+      });
+  
+
     }
+    
 
     //  CTA animation functions
     function ctaAnims() {
+    
       $(".ctaButton").each(function () {
-        //(store original width for later animation)
-        $originalWidth = $(this).width();
-
-        //adjust width to layout and append svg line
-
-        var parentWidth = $(this).parent().width();
+        var $this = $(this);
+    
+        // Store original width for later animation
+        var originalWidth = $this.width();
+        $this.data("originalWidth", originalWidth);
+    
+        // Adjust width to layout and append svg line
+        var parentWidth = $this.parent().width();
         var newWidth = parentWidth;
-        $(this).width(newWidth);
-        var elementColor = $(this).css("color");
+        $this.width(newWidth);
+        var elementColor = $this.css("color");
         var svgLine = $('<svg xmlns="http://www.w3.org/2000/svg" version="1.1">')
           .attr("width", newWidth)
           .attr("height", 1)
           .append($("<line>").attr("x1", 0).attr("y1", 0).attr("x2", newWidth).attr("y2", 0).attr("stroke", elementColor).attr("stroke-width", 3));
-
+    
         var svgString = $("<div>").append(svgLine.clone()).html();
-
-        $(this).append(svgString);
-
-        // On hover revert line length to the original length of the CTA
-
-        $(this).hover(
+    
+        $this.append(svgString);
+    
+        // On hover, revert line length to the original length of the CTA
+        $this.hover(
           function () {
-            $(this).find("svg").attr("width", $originalWidth);
+   
+            $(this).find("svg").attr("width", $this.data("originalWidth"));
+
           },
           function () {
             $(this).find("svg").attr("width", newWidth);
@@ -237,12 +252,14 @@
         );
       });
     }
-
-    ctaAnims();
-
+    
+    
+    
+    
     if (typeof acf !== "undefined") {
       acf.unload.active = false;
     }
+    ctaAnims();
 
     // Slick Slider Functions
     if ($(window).width() < 850) {

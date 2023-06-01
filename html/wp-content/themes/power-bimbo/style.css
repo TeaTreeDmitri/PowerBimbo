@@ -24,19 +24,6 @@ Text Domain:  powerbimbo
 
 /* header  */
 
-.headerCorporate {
-  width: 100vw;
-  padding: 0 10vw 0 10vw;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  height: 70px;
-  align-items: center;
-  position: fixed;
-  background-color: var(--white);
-  z-index: 20;
-}
-
 .DBCLogo {
   height: 80%;
 }
@@ -47,6 +34,11 @@ Text Domain:  powerbimbo
 
 body {
   background-color: var(--white);
+}
+
+.article a {
+  text-decoration: none !important;
+  color: var(--white) !important;
 }
 
 /* footer  */
@@ -123,6 +115,14 @@ body {
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Open-Sans-Light';
+  src: url('/wp-content/themes/power-bimbo/assets/fonts/Open_Sans/static/OpenSans-Light.ttf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ********** Generic STYLING ********** */
 
 * {
@@ -176,6 +176,50 @@ body {
   margin-bottom: 2rem;
 }
 
+/* **********  News Page STYLING ********** */
+
+.newsContainer {
+  max-width: 80%;
+  margin: 0 10% 4rem;
+  display: flex;
+  flex-direction: column;
+}
+.newsTopLayout {
+  background-color: var(--pale-blue);
+  padding: 1rem;
+  display: grid;
+  min-height: 70vh;
+  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.newsImg {
+  overflow-x: hidden;
+  margin-left: auto 0 auto;
+  max-width: 100% !important;
+  max-height: 70vh;
+}
+
+.newsImgContainer {
+  width: 100%;
+  display: grid;
+  place-content: center;
+}
+
+.newsIntro {
+  padding: 2rem;
+  height: 100%;
+  max-height: 50vh;
+}
+
+.newsCategory {
+  color: var(--blue);
+}
+
+.articleBody {
+  display: block;
+  grid-column: 1 / -1;
+}
 /* ********** Branding Video STYLING ********** */
 
 .brandingVideo {
@@ -194,6 +238,7 @@ body {
 .videoContainerInfo {
   display: flex;
   flex-direction: column;
+  row-gap: 1rem;
   align-items: center;
   width: 70%;
   margin: 0 auto 1rem auto;
@@ -355,7 +400,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-
+  margin-bottom: 1rem;
   column-gap: 1rem;
 }
 
@@ -377,15 +422,15 @@ body {
 
 .gallery-slider {
   margin-left: 20vw;
-  height: 70vh;
+  min-height: 70vh;
   max-width: 80vw;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: calc(50vh+2rem) 10vh;
+  row-gap: 2rem;
+  grid-template-rows: auto;
 }
 
 .gallery-slider .customCard {
-  height: 50vh;
   margin-right: 1rem;
 }
 
@@ -429,10 +474,9 @@ body {
 }
 
 .slick-list {
-  grid-row: 1 / 3;
+  grid-row: 1 / 2;
   grid-column: 1 / 13;
   max-width: 100vw;
-  max-height: 50vh;
 }
 
 .slick-dots button {
@@ -602,6 +646,11 @@ li.slick-active {
 .ctaButtondarkBlue {
   color: var(--white);
 }
+
+.buttonContainer {
+  display: block;
+  width: 100%;
+}
 /* *************************** WHOWHERE FORM SECTION *************************** */
 
 .whoWhere {
@@ -648,11 +697,11 @@ select {
 /* *************************** HERO SECTION *************************** */
 
 .heroSection {
-  height: 90vh;
+  height: 65vh;
   width: 100vw;
   display: grid;
   place-content: center;
-  margin-bottom: 4rem;
+  margin-bottom: 25vh;
 }
 
 .heroContainer {

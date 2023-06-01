@@ -27,7 +27,7 @@
                 </li>
 
                 <li>
-                    <a href="https://powerbimbo.demo.supertusch.com/">About DBC</a>                
+                    <a href="https://powerbimbo.demo.supertusch.com/about-us/">About DBC</a>                
                 </li>
 
                 <li>

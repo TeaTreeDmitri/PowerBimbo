@@ -18,7 +18,7 @@ if(have_rows('block')):
 
         switch (get_row_layout()) {
 
-            // ************************* TEMPORARY HERO SECTION *****************************
+            // ************************* HERO SECTION *****************************
 
             case "hero_video";
 
@@ -76,26 +76,26 @@ if(have_rows('block')):
 
                                 if(have_rows ('where1')):
                                     while(have_rows('where1')) : the_row();
-                                        echo '<option class="where1answer hidden" "value=" ' . get_sub_field("where1answerlabel") . ' "> <a href="' . get_sub_field("where1answerurl"). ' "> ' .  get_sub_field("where1answerlabel") . ' </a> </option>';
+                                        echo '<option class="where1answer hidden" value=" ' . get_sub_field('where1answerlabel') . ' " data-id=" ' . get_sub_field("where1answerurl") . ' ">' . get_sub_field('where1answerlabel') . '</option>';
                                     endwhile;
                                 endif;
 
                                 if(have_rows ('where2')):
                                     while(have_rows('where2')) : the_row();
-                                        echo '<option class="where2answer hidden "value=" ' . get_sub_field("where2answerlabel") . ' "> <a href="' . get_sub_field("where2answerurl"). ' "> ' .  get_sub_field("where2answerlabel") . ' </a> </option>';
+                                        echo '<option class="where2answer hidden" value=" ' . get_sub_field('where2answerlabel') . ' " data-id=" ' . get_sub_field("where2answerurl") . ' ">' . get_sub_field('where2answerlabel') . '</option>';
                                     endwhile;
                                 endif;
 
                                 if(have_rows ('where3')):
                                     while(have_rows('where3')) : the_row();
-                                        echo '<option class="where3answer hidden" "value=" ' . get_sub_field("where3answerlabel") . ' "> <a href="' . get_sub_field("where3answerurl"). ' "> ' .  get_sub_field("where3answerlabel") . ' </a> </option>';
+                                        echo '<option class="where3answer hidden" value=" ' . get_sub_field('where3answerlabel') . ' " data-id=" ' . get_sub_field("where3answerurl") . ' ">' . get_sub_field('where3answerlabel') . '</option>';
                                     endwhile;
                                 endif;
 
                                 echo '</select>';
                             echo '</div>';
 
-                            echo '<a href=" "><img src="/wp-content/themes/power-bimbo/assets/graphics/Arrow_R.png"></a>';
+                            echo '<a id="whoWhereButton" href=" "><img src="/wp-content/themes/power-bimbo/assets/graphics/Arrow_R.png"></a>';
 
                         echo'</form>';
                     echo '</div>';
@@ -108,7 +108,7 @@ if(have_rows('block')):
 
             case "branding_video";
 
-                    echo '<div class="blockContainer ">';
+                    echo '<div class="blockContainer" id="'. get_sub_field('anchor') .'">';
                         echo '<div class="brandingVideo ">';
 
                             echo '<img class="brandingVideoGraphic" src="/wp-content/themes/power-bimbo/assets/graphics/Rectangle4.svg">';
@@ -136,12 +136,13 @@ if(have_rows('block')):
                                     echo '</p>';
                                 endif;
 
-                                if(get_sub_field('ctacontent')):
-                                    echo '<div class="buttonContainer">';
+                                if(get_sub_field('cta_link')):
+                                    $link = get_sub_field('cta_link');
+                                    echo '<a class="buttonContainer" href="' .  $link['url'] . '">';
                                         echo "<button class='ctaButton ctaButtondarkBlue'>";
-                                            echo get_sub_field('ctacontent');
+                                            echo $link['title'];
                                         echo "</button>";
-                                    echo '</div>';
+                                    echo '</a>';
                                 endif;
 
                             echo '</div>';
@@ -162,7 +163,7 @@ if(have_rows('block')):
                 endif;
 
                 $colour = get_sub_field('colour');
-                echo '<div class= "blockContainer ">';
+                echo '<div class="blockContainer" id="'. get_sub_field('anchor') .'">';
 
                     echo '<div class=" ' . $orietntationHorizClass . ' textPicPortrait ' . $colour . ' ">';
 
@@ -191,12 +192,13 @@ if(have_rows('block')):
                                     endif;  
                                     echo '</div>';
 
-                                    if(get_sub_field('ctacontent')):
-                                        echo '<div class="buttonContainer">';
+                                    if(get_sub_field('cta_link')):
+                                        $link = get_sub_field('cta_link');
+                                        echo '<a class="buttonContainer" href="' .  $link['url'] . '">';
                                             echo "<button class='ctaButton ctaButton$colour'>";
-                                                echo get_sub_field('ctacontent');
+                                                echo $link['title'];
                                             echo "</button>";
-                                        echo '</div>';
+                                        echo '</a>';
                                     endif;
                         echo '</div>';
                     echo '</div>';
@@ -214,7 +216,7 @@ if(have_rows('block')):
                     $orietntationVertClass = "bottomToTop";
                 endif;
 
-                echo '<div class= "blockContainer ">';
+                echo '<div class="blockContainer" id="'. get_sub_field('anchor') .'">';
 
                     echo '<div class=" ' . $orietntationVertClass . ' textPicLandscape">';
 
@@ -245,13 +247,14 @@ if(have_rows('block')):
                                     endif;  
                             echo '</div>';
 
-                                if(get_sub_field('ctacontent')):
-                                    echo '<div class="buttonContainer">';
-                                        echo "<button class='ctaButton ctaButton$colour'>";
-                                            echo get_sub_field('ctacontent');
-                                        echo "</button>";
-                                    echo '</div>';
-                                endif;
+                            if(get_sub_field('cta_link')):
+                                $link = get_sub_field('cta_link');
+                                echo '<a class="buttonContainer" href="' .  $link['url'] . '">';
+                                    echo "<button class='ctaButton ctaButton$colour'>";
+                                        echo $link['title'];
+                                    echo "</button>";
+                                echo '</a>';
+                            endif;
 
                         echo '</div>';
                     echo '</div>';
@@ -266,7 +269,7 @@ if(have_rows('block')):
 
                 $colour = get_sub_field('colour');
                     
-                echo '<div class= "blockContainer ">';
+                echo '<div class="blockContainer" id="'. get_sub_field('anchor') .'">';
                     
                     echo '<div class="fullWidthQuote ' . $colour . ' ">';
 
@@ -288,10 +291,13 @@ if(have_rows('block')):
 
                             echo '</div>';
                             
-                            if(get_sub_field('ctacontent')):
-                                echo "<button class='ctaButton ctaButton$colour'>";
-                                    echo get_sub_field('ctacontent');
-                                echo "</button>";
+                            if(get_sub_field('cta_link')):
+                                $link = get_sub_field('cta_link');
+                                echo '<a class="buttonContainer" href="' .  $link['url'] . '">';
+                                    echo "<button class='ctaButton ctaButton$colour'>";
+                                        echo $link['title'];
+                                    echo "</button>";
+                                echo '</a>';
                             endif;
                             
                             
@@ -305,7 +311,7 @@ if(have_rows('block')):
 
             case "full_width_picture";
 
-                echo '<div class="blockContainer ">';
+            echo '<div class="blockContainer" id="'. get_sub_field('anchor') .'">';
 
                     if(get_sub_field('image')):
                         echo '<div class="fullWidthImageContainer">';
@@ -321,7 +327,7 @@ if(have_rows('block')):
 
             case "cards_section";
 
-                echo '<div class="blockContainer ">';
+            echo '<div class="blockContainer" id="'. get_sub_field('anchor') .'">';
 
                         if(get_sub_field('card_section_subtitle')):
                             echo '<h5 class="sectionSubtitle">';
@@ -367,11 +373,14 @@ if(have_rows('block')):
 
                                             echo '</div>';
 
-                                            echo '<div class="buttonContainer">';
-                                                echo '<button class="ctaButton ctaButtonlightBlue">';
-                                                    echo get_sub_field('ctacontent');
-                                                echo '</button>';
-                                            echo '</div>';
+                                            if(get_sub_field('cta_link')):
+                                                $link = get_sub_field('cta_link');
+                                                echo '<a class="buttonContainer" href="' .  $link['url'] . '">';
+                                                    echo "<button class='ctaButton ctaButtonlightBlue'>";
+                                                        echo $link['title'];
+                                                    echo "</button>";
+                                                echo '</a>';
+                                            endif;
 
 
                                         echo '</div>';
@@ -392,7 +401,7 @@ if(have_rows('block')):
 
             case "carousel_card_section";
 
-                echo '<div class="blockContainer  ">';
+            echo '<div class="blockContainer" id="'. get_sub_field('anchor') .'">';
 
                     if(get_sub_field('carousel_section_subtitle')):
                         echo '<h5 class="sectionSubtitle">';
@@ -423,17 +432,20 @@ if(have_rows('block')):
                                                 echo get_sub_field('card_title');
                                             echo '</h5>';
 
-                                            echo '<p>';
+                                            echo '<p class="abbridged">';
                                                 echo get_sub_field('card_content');
                                             echo '</p>';
 
                                         echo '</div>';
 
-                                        echo '<div class="buttonContainer">';
-                                            echo '<button class="simpleCtaButton ctaButtonlightBlue">';
-                                                echo get_sub_field('ctacontent');
-                                            echo '</button>';
-                                        echo '</div>';
+                                        if(get_sub_field('cta_link')):
+                                            $link = get_sub_field('cta_link');
+                                            echo '<a class="buttonContainer" href="' .  $link['url'] . '">';
+                                                echo "<button class='ctaButton ctaButtonlightBlue'>";
+                                                    echo $link['title'];
+                                                echo "</button>";
+                                            echo '</a>';
+                                        endif;
 
                                     echo '</div>';
                                 endif;
@@ -452,7 +464,7 @@ if(have_rows('block')):
 
             case "object_grid";
 
-                echo '<div class="blockContainer ">';
+                echo '<div class="blockContainer" id="'. get_sub_field('anchor') .'">';
 
                 if(get_sub_field('grid_section_subtitle')):
                     echo '<h5 class="sectionSubtitle">';
@@ -510,7 +522,7 @@ if(have_rows('block')):
 
             case "wysiwyg";
 
-            echo '<div class="blockContainer ">';
+            echo '<div class="blockContainer" id="'. get_sub_field('anchor') .'">';
 
                     if(get_sub_field('flexible_text_content')):
 
@@ -523,6 +535,78 @@ if(have_rows('block')):
             echo '</div';
 
             break;
+
+            // ********* NEWS CARDS ***************************
+
+            case "news_cards";
+        
+    $args = array(
+      'post_type' => 'post',
+      'posts_per_page' => -1, // Retrieve all posts
+    );
+
+    $query = new WP_Query($args);
+
+    if ($query->have_posts()):
+
+      // heading section
+
+  echo '<div class="blockContainer" id="'. get_sub_field('anchor') .'">';
+
+    echo '<h5 class="sectionSubtitle"> The latest at DBC</h5>';
+
+    echo '<h2 class="sectionTitle">New features, guides, and other news</h2>';
+
+  echo '</div>';
+  
+  
+  echo '<div class="blockContainer" id="'. get_sub_field('anchor') .'">';
+
+  echo '<div class="cardContainer">';
+  
+  while ($query->have_posts()) :
+    $query->the_post();
+
+    $news_article = get_sub_field('article');
+    $news_article_img = get_field('main_article_image', $news_article ->ID);
+    $news_article_title = get_field('article_heading', $news_article->ID);
+    $news_article_intro = get_field('article_intro', $news_article->ID);
+                  
+        echo '<div class="customCard">';
+
+          echo '<div class="holdLayout">';
+
+            echo '<img src=" '. $news_article_img .' ">';
+
+            echo '<h5> ' . $news_article_title . '</h5>';
+
+              echo '<p class="abbridged"> '. $news_article_intro .'</p>';
+
+          echo '</div>';
+
+                echo '<a href=" ' . get_permalink($news_article ->ID) . ' ">';
+              echo '<button class="ctaButton ctaButtonlightBlue">Read More</button>';
+              echo '</a>';
+
+
+        echo '</div>';
+        
+                    endwhile;
+
+    echo '</div>';
+
+            echo '<a href="' .  get_page_link('287') . '">';
+                echo "<button class='ctaButton ctaButtonlightBlue'>";
+                    echo get_sub_field('ctacontent');
+                echo "</button>";
+            echo '</a>';
+    
+  echo '</div>';
+  
+      wp_reset_postdata(); // Reset the post data
+    else :
+      echo '<li>No posts found.</li>';
+    endif;
 
 
         };

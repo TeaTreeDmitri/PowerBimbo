@@ -79,9 +79,11 @@ $news_article_heading= get_field('header', $news_article->ID );
                                         echo '<h3>';
                                  echo $news_article->post_title;
                                         echo '</h3>';
-                                    echo '<a class="ctaButton ctaButtondarkBlue"  href="' . get_permalink($news_article->ID) . '">';
+                                        echo '<a class="buttonContainer" href="' . get_permalink($news_article->ID) . '">';
+                                        echo "<button class='ctaButton ctaButtondarkBlue'>";
                                     echo 'Read More';
-                                echo '</a>';
+                                    echo "</button>";
+                                    echo '</a>';
                   
                                     echo '</div>';
                                   

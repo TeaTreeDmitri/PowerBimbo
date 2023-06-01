@@ -96,6 +96,10 @@ a.navbar-nav {
   height: 5rem;
 }
 
+.logoWrapper {
+  width: 20%;
+}
+
 /*documentation page*/
 
 .blackBackground {
