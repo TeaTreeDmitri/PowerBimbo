@@ -5,7 +5,7 @@
 * @package powerbimbo
 */
 
-get_header();
+
 
 ?>
   <div class="main-content-default">
@@ -14,6 +14,7 @@ get_header();
         the_post();
 
         get_template_part('/template-parts/content', 'post');
+        get_template_part('/template-parts/content', 'blocks');
 
       } //endwhile;
     ?>

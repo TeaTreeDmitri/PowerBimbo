@@ -8,8 +8,18 @@
 get_header();
 ?>
 
-<div class="container">
-  <div class="row">
-    <p>this is "working"</p>
+
+<div class="container-fluid px-0">
+
+
+             
+             <?php get_template_part('/template-parts/content-blocks');
+        ?>
+
+            
+       
+ 
+
 </div>
-</div>
+
+<?php get_footer(); ?>

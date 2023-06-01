@@ -1,14 +1,3 @@
-<?php
-/**
-* Template for displaying front page
-* Template name: Block Demo
-*
-* @package powerbimbo
-*/
-get_header();
-?>
-
-
 <?php  
 
 
@@ -24,130 +13,21 @@ if(have_rows('block')):
 
 
                 if(get_sub_field('video')):
-
-                    echo '<div class="heroSection">';
-
+                    echo '<div class="heroSectionDraft">';
                         echo '<div class="heroContainer">';
-                            echo '<img id="blueRect4" class="videoGraphicLayer" src="/wp-content/themes/power-bimbo/assets/graphics/Rectangle4.svg">';
-                            echo '<img id="blueRect3" class="videoGraphicLayer" src="/wp-content/themes/power-bimbo/assets/graphics/Rectangle3.svg">';
-                            echo '<img id="blueRect2" class="videoGraphicLayer" src="/wp-content/themes/power-bimbo/assets/graphics/Rectangle2.svg">';
-                            echo '<img id="blueRect1" class="videoGraphicLayer" src="/wp-content/themes/power-bimbo/assets/graphics/Rectangle1.svg">';
-                            
-                            echo '<div class="videoContainer">';
-                                echo  '<video loop autoplay muted class="heroVideo">';
-                                    echo '<source src="' . get_sub_field('video') . ' " type="video/mp4">';
-                                    echo '</video>';
+                        echo '<img id="blueRect4" class="videoGraphicLayer" src="/wp-content/themes/power-bimbo/assets/graphics/Rectangle4.svg">';
+                        echo '<img id="blueRect3" class="videoGraphicLayer" src="/wp-content/themes/power-bimbo/assets/graphics/Rectangle3.svg">';
+                        echo '<img id="blueRect2" class="videoGraphicLayer" src="/wp-content/themes/power-bimbo/assets/graphics/Rectangle2.svg">';
+                        echo '<img id="blueRect1" class="videoGraphicLayer" src="/wp-content/themes/power-bimbo/assets/graphics/Rectangle1.svg">';
+                        echo '<div class="videoContainer">';
+                            echo  '<video loop autoplay muted class="heroVideo">';
+                                echo '<source src="' . get_sub_field('video') . ' " type="video/mp4">';
+                                echo '</video>';
                             echo '</div>  ';
                         echo  '</div>  ';
-
-                        echo '<form class="whoWhere h4">';
-                            echo '<div class="formStep1">';
-                                echo '<label class="formQuestion" for="whoQ"> I&#39;m a  </label>';
-                                echo '<select name="whoQ" id="whoList">';
-
-                                        echo '<option value=""> </option>';
-    
-                                    if(get_sub_field('who1')):
-                                        $who1 = get_sub_field('who1');
-                                        echo '<option id="who1" value ="' . $who1 . '">' . $who1 . ' </option>';
-                                    endif;
-
-                                    if(get_sub_field('who2')):
-                                        $who2 = get_sub_field('who2');
-                                        echo '<option id="who2" value ="' . $who2 . '">' . $who2 . ' </option>';
-                                    endif;
-
-                                    if(get_sub_field('who3')):
-                                        $who3 = get_sub_field('who3');
-                                        echo '<option id="who3" value ="' . $who3 . '">' . $who3 . ' </option>';
-                                    endif;
-
-                                echo '</select>';
-
-                            echo '</div>';
-
-
-                            echo '<div class="formStep2">';
-                                echo '<label class="formQuestion" for="whereQ"> looking for </label>';
-                                echo '<select name="whereQ" id="whereList">';
-
-
-                                echo '<option value=""> </option>';
-
-                                if(have_rows ('where1')):
-                                    while(have_rows('where1')) : the_row();
-                                        echo '<option class="where1answer hidden" "value=" ' . get_sub_field("where1answerlabel") . ' "> <a href="' . get_sub_field("where1answerurl"). ' "> ' .  get_sub_field("where1answerlabel") . ' </a> </option>';
-                                    endwhile;
-                                endif;
-
-                                if(have_rows ('where2')):
-                                    while(have_rows('where2')) : the_row();
-                                        echo '<option class="where2answer hidden "value=" ' . get_sub_field("where2answerlabel") . ' "> <a href="' . get_sub_field("where2answerurl"). ' "> ' .  get_sub_field("where2answerlabel") . ' </a> </option>';
-                                    endwhile;
-                                endif;
-
-                                if(have_rows ('where3')):
-                                    while(have_rows('where3')) : the_row();
-                                        echo '<option class="where3answer hidden" "value=" ' . get_sub_field("where3answerlabel") . ' "> <a href="' . get_sub_field("where3answerurl"). ' "> ' .  get_sub_field("where3answerlabel") . ' </a> </option>';
-                                    endwhile;
-                                endif;
-
-                                echo '</select>';
-                            echo '</div>';
-
-                            echo '<a href=" "><img src="/wp-content/themes/power-bimbo/assets/graphics/Arrow_R.png"></a>';
-
-                        echo'</form>';
                     echo '</div>';
 
                 endif;
-
-            break;
-
-                                //*********** Video Branding Block **********
-
-            case "branding_video";
-
-                    echo '<div class="blockContainer ">';
-                        echo '<div class="brandingVideo ">';
-
-                            echo '<img class="brandingVideoGraphic" src="/wp-content/themes/power-bimbo/assets/graphics/Rectangle4.svg">';
-
-                            echo '<div class="videoContainerInfo">';
-                                
-                                if(get_sub_field('video')):
-                                    echo '<div class="videoContainerNative ">';
-                                        echo '<video loop muted autoplay>';
-                                            echo '<source src=" ' . get_sub_field('video') . ' " type="video/mp4">';
-                                        echo '</video>';
-                                    echo '</div>';
-                                endif;
-
-
-                                if(get_sub_field('section_title')):
-                                    echo '<h2 class="darkBlue">';
-                                        echo get_sub_field('section_title');
-                                    echo '</h2>';
-                                endif;
-
-                                if(get_sub_field('section_message')):
-                                    echo '<p class="darkBlue">';
-                                        echo get_sub_field('section_message');
-                                    echo '</p>';
-                                endif;
-
-                                if(get_sub_field('ctacontent')):
-                                    echo '<div class="buttonContainer">';
-                                        echo "<button class='ctaButton ctaButtondarkBlue'>";
-                                            echo get_sub_field('ctacontent');
-                                        echo "</button>";
-                                    echo '</div>';
-                                endif;
-
-                            echo '</div>';
-
-                        echo '</div>';
-                    echo '</div>';
 
             break;
                 
@@ -162,7 +42,7 @@ if(have_rows('block')):
                 endif;
 
                 $colour = get_sub_field('colour');
-                echo '<div class= "blockContainer ">';
+                echo '<div class= "blockContainer">';
 
                     echo '<div class=" ' . $orietntationHorizClass . ' textPicPortrait ' . $colour . ' ">';
 
@@ -214,7 +94,7 @@ if(have_rows('block')):
                     $orietntationVertClass = "bottomToTop";
                 endif;
 
-                echo '<div class= "blockContainer ">';
+                echo '<div class= "blockContainer">';
 
                     echo '<div class=" ' . $orietntationVertClass . ' textPicLandscape">';
 
@@ -266,7 +146,7 @@ if(have_rows('block')):
 
                 $colour = get_sub_field('colour');
                     
-                echo '<div class= "blockContainer ">';
+                echo '<div class= "blockContainer">';
                     
                     echo '<div class="fullWidthQuote ' . $colour . ' ">';
 
@@ -305,7 +185,7 @@ if(have_rows('block')):
 
             case "full_width_picture";
 
-                echo '<div class="blockContainer ">';
+                echo '<div class="blockContainer">';
 
                     if(get_sub_field('image')):
                         echo '<div class="fullWidthImageContainer">';
@@ -321,7 +201,7 @@ if(have_rows('block')):
 
             case "cards_section";
 
-                echo '<div class="blockContainer ">';
+                echo '<div class="blockContainer">';
 
                         if(get_sub_field('card_section_subtitle')):
                             echo '<h5 class="sectionSubtitle">';
@@ -392,7 +272,7 @@ if(have_rows('block')):
 
             case "carousel_card_section";
 
-                echo '<div class="blockContainer  ">';
+                echo '<div class="blockContainer ">';
 
                     if(get_sub_field('carousel_section_subtitle')):
                         echo '<h5 class="sectionSubtitle">';
@@ -452,7 +332,7 @@ if(have_rows('block')):
 
             case "object_grid";
 
-                echo '<div class="blockContainer ">';
+                echo '<div class="blockContainer">';
 
                 if(get_sub_field('grid_section_subtitle')):
                     echo '<h5 class="sectionSubtitle">';
@@ -510,7 +390,7 @@ if(have_rows('block')):
 
             case "wysiwyg";
 
-            echo '<div class="blockContainer ">';
+            echo '<div class="blockContainer">';
 
                     if(get_sub_field('flexible_text_content')):
 
@@ -532,7 +412,3 @@ if(have_rows('block')):
 endif;
 
 ?>
-
-<?php get_footer(); ?>
-
-

@@ -3,6 +3,20 @@
 .graphicAndText {
   background-color: #103ee3;
 }
+
+.graphicAndText h1 {
+  text-align: right;
+  margin: 2.5rem 0;
+}
+
+.graphicAndText p {
+  margin-bottom: 2rem;
+}
+
+.graphicAndText .ctaButton {
+  margin-bottom: 2.5rem;
+}
+
 .graphicAndText .row {
   margin: 0;
 }
@@ -11,7 +25,8 @@
 }
 
 .graphic img {
-  width: 100%;
+  width: 60%;
+  margin: auto;
 }
 
 .graphicText {
@@ -19,6 +34,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  padding: 4rem 0;
 }
 
 a {
@@ -54,4 +70,234 @@ a {
   align-self: flex-end;
   width: 25%;
   padding: 15px;
+}
+
+/*header*/
+
+body.page-template-page-documentation header {
+  display: none;
+}
+
+.documantation-header {
+  display: flex;
+}
+
+.topHeader {
+  background-color: #000000;
+}
+
+.topHeader a.nav-link,
+.topHeader a.nav-item,
+a.navbar-nav {
+  color: #ffffff !important;
+}
+
+.navbar-brand img {
+  height: 5rem;
+}
+
+/*documentation page*/
+
+.blackBackground {
+  background-color: #000000;
+  display: flex;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.inputAndReuslts {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+}
+
+#searchInput {
+  border: none;
+  outline: none;
+  font-family: "Open-Sans-Regular";
+  margin: 0 0 0 1rem;
+  box-shadow: none;
+}
+
+input#searchInput:focus {
+  border: 0;
+  outline: none;
+  box-shadow: none;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border: 0;
+  box-shadow: none;
+}
+
+#searchResults {
+  list-style: none;
+  background-color: #ffffff;
+  position: absolute;
+  top: 3rem;
+}
+
+#searchForm {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#searchForm button {
+  align-self: flex-start;
+  align-self: flex-start;
+  border: none;
+  background-color: unset;
+  color: #000000;
+  font-family: "Open-Sans-Regular";
+  border-left: black solid 1px;
+  border-radius: 0;
+  padding: 1rem;
+}
+
+.documentation {
+  display: grid;
+  grid-template-columns: 33% 1fr;
+  padding-bottom: 30px;
+}
+
+/* left panel*/
+
+.left-panel {
+  padding: 30px;
+  background-color: #f5fbff;
+  overflow-y: auto; /* Enable vertical scroll */
+  height: calc(100vh - 60px); /* Set maximum height to fill remaining viewport height */
+  position: sticky;
+  top: 1rem;
+}
+
+.subjectHeading {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.subjectHeading:hover {
+  cursor: pointer;
+}
+
+.subjectHeading h5 {
+  font-family: "Open-Sans-Regular";
+  color: black;
+}
+
+.subjectHeading.open h5 {
+  font-family: "Open-Sans-SemiBold";
+  color: black;
+}
+
+.subjectHeading .material-symbols-outlined {
+  font-size: 2rem;
+}
+
+.subjectHeading.open .material-symbols-outlined {
+  transform: rotate(180deg);
+}
+
+a.subOffering,
+a.subjectLink {
+  display: none;
+}
+
+a.subOffering p:hover,
+a.subjectLink p:hover {
+  background-color: #cdeaff;
+}
+
+a.subOffering.open,
+a.subjectLink.open {
+  display: flex;
+  gap: 0.8rem;
+  margin-left: 0.8rem;
+}
+
+a.subOffering.open {
+  margin-left: 2rem;
+}
+
+/** Main doc section*/
+
+.search-highlight {
+  background-color: yellow;
+}
+
+.disclaimerBox {
+  background-color: #103ee3;
+  color: #ffffff;
+  display: grid;
+  grid-template-columns: 60% 1fr;
+}
+
+.disclaimerText {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 3rem;
+}
+
+.docsIntroImage {
+  background-size: cover;
+  background-position: center;
+}
+
+.docSection {
+  margin: 2rem 2rem 7rem 2rem;
+}
+
+/* .documentation-main {
+  overflow-y: auto;
+  height: calc(100vh - 60px);
+} */
+
+.subjectBody {
+  margin: auto;
+  width: 80%;
+  padding-bottom: 2rem;
+}
+
+.offeringBody {
+  margin: auto;
+  width: 80%;
+}
+
+.offeringBody img {
+  width: 100%;
+}
+
+h3.docSubjectHeading {
+  margin-bottom: 1.8rem;
+  font-family: "Open-Sans-SemiBold";
+}
+
+.documentation-main h4 {
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.documentation-main h5 {
+  margin-bottom: 1rem;
+}
+
+h5.offeringHeading {
+  font-family: "Open-Sans-SemiBold";
+  margin-bottom: 2rem;
+}
+
+h5.offeringSubheading {
+  margin-left: 2rem;
 }

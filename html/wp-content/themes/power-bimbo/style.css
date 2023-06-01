@@ -22,8 +22,87 @@ Text Domain:  powerbimbo
   /* font variables */
 }
 
+/* header  */
+
+.headerCorporate {
+  width: 100vw;
+  padding: 0 10vw 0 10vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  align-items: center;
+  position: fixed;
+  background-color: var(--white);
+  z-index: 20;
+}
+
+.DBCLogo {
+  height: 80%;
+}
+
+.headerItem {
+  color: var(--black);
+}
+
 body {
   background-color: var(--white);
+}
+
+/* footer  */
+
+.corporateFooter {
+  height: 300px;
+  width: 100vw;
+  background-color: var(--pale-blue);
+  color: var(--blue);
+  display: flex;
+  justify-content: space-between;
+}
+
+.corporateFooter * {
+  list-style: none;
+}
+
+.footerRight {
+  display: flex;
+  width: 30rem;
+}
+
+.footerRightLinks {
+  border-right: 1px solid var(--blue);
+  padding-top: 1rem;
+  width: 50%;
+}
+
+.footerRightLinks ul li {
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  text-align: right;
+}
+
+.footerRightInfo {
+  padding-top: 1rem;
+  margin-right: 2rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  align-items: start;
+}
+
+.footerRightInfo img {
+  max-height: 50px;
+  margin-left: 2rem;
+}
+
+.footerLeft {
+  align-self: end;
+  height: 50%;
+  position: relative;
+}
+
+.footerLeft a img {
+  height: 100%;
 }
 
 /* font imports */
@@ -36,11 +115,27 @@ body {
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Open-Sans-SemiBold';
+  src: url('/wp-content/themes/power-bimbo/assets/fonts/Open_Sans/static/OpenSans-SemiBold.ttf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ********** Generic STYLING ********** */
 
 * {
   font-family: 'Open-Sans-Regular';
   box-sizing: border-box;
+}
+
+.hidden {
+  display: none;
+}
+
+.seeThru {
+  opacity: 0;
 }
 
 .darkBlue {
@@ -79,6 +174,52 @@ body {
 .sectionTitle {
   text-align: center;
   margin-bottom: 2rem;
+}
+
+/* ********** Branding Video STYLING ********** */
+
+.brandingVideo {
+  position: relative;
+  max-width: 840px;
+}
+
+.brandingVideoGraphic {
+  position: absolute;
+  margin: 0 auto;
+  width: 100%;
+  z-index: -1;
+  bottom: 0;
+}
+
+.videoContainerInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  margin: 0 auto 1rem auto;
+}
+
+.videoContainerInfo .buttonContainer {
+  width: 70%;
+}
+
+.videoContainerInfo > h2 {
+  width: 100%;
+  text-align: left;
+}
+
+.videoContainerInfo > p {
+  margin-left: 30%;
+}
+
+.videoContainerNative {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  overflow: hidden;
+}
+
+.videoContainerNative video {
+  height: 100%;
 }
 
 /* ********** Text Picture container STYLING ********** */
@@ -212,15 +353,16 @@ body {
 
 .cardContainer {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  height: 70vh;
+
   column-gap: 1rem;
 }
 
 .customCard {
   width: 275px;
   background-color: var(--pale-blue);
-  height: 100%;
+  height: 70vh;
   padding: 1rem;
   display: flex !important;
   flex-direction: column;
@@ -235,6 +377,7 @@ body {
 
 .gallery-slider {
   margin-left: 20vw;
+  height: 70vh;
   max-width: 80vw;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -459,29 +602,83 @@ li.slick-active {
 .ctaButtondarkBlue {
   color: var(--white);
 }
+/* *************************** WHOWHERE FORM SECTION *************************** */
+
+.whoWhere {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+
+.whoWhere a {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  margin-left: 3rem;
+}
+
+.whoWhere a img {
+  object-fit: contain;
+  position: absolute;
+  top: -1rem;
+}
+
+.formQuestion {
+  margin-left: 1rem;
+}
+
+/* **DROPDOWNS** */
+
+select {
+  background-color: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  outline: none;
+  z-index: 1;
+  align-items: center;
+  position: relative;
+  border-bottom: 2px solid var(--black);
+  color: var(--blue);
+}
 
 /* *************************** HERO SECTION *************************** */
 
-.heroSectionDraft {
-  height: 80vh;
+.heroSection {
+  height: 90vh;
   width: 100vw;
   display: grid;
   place-content: center;
   margin-bottom: 4rem;
 }
 
+.heroContainer {
+  display: grid;
+  place-content: center;
+}
+
 .videoContainer {
+  margin-top: 5rem;
   max-width: 50vw;
   aspect-ratio: 18 / 9;
   overflow: hidden;
   border-radius: 9999px;
 }
 
+.formStep1,
+.formStep2 {
+  display: flex;
+  column-gap: 1rem;
+}
+
 .heroVideo {
   width: 100%;
 }
 
-.heroSectionDraft img {
+.heroSection img {
   position: absolute;
   z-index: -1;
 }
@@ -514,6 +711,8 @@ li.slick-active {
   filter: blur(6px);
 }
 
+/* *************************** ANIMATIONS SECTION *************************** */
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -524,63 +723,96 @@ li.slick-active {
 }
 /* 
 
-h1 ???
 
-h2  (news section titles and drop down)
-open sans
-semi bold
-size 60
+/* *************************** MEDIA QUERIES SECTION *************************** */
 
-h3 (card section title)
-open sans
-semi bold
-size 54
+@media only screen and (max-width: 1000px) {
+  .microCard {
+    min-width: 50%;
+  }
 
-h3.textSection 
-open sans
-bold
-size 54
+  .gridLayout {
+    width: 90%;
+  }
+}
 
-h4 (full width quote)
-open sans
-semi bold
-size 40
+@media only screen and (max-width: 850px) {
+  .cardContainer {
+    justify-content: space-around;
+    row-gap: 1rem;
+  }
 
-h4.textSection .subtitle 
-open sans
-semi-bold
-size 36
+  .brandingVideoGraphic {
+    display: none;
+  }
 
+  .brandingVideo {
+    background-color: var(--blue);
+    width: 80vw;
+  }
 
-h4.textSection .quote 
-open Sans
-bold
-size 36
+  .videoContainerInfo {
+    width: 100%;
+    padding: 1rem 1rem 0;
+  }
 
-h5 (card content title / card section sub-title)
-open sans
-semi bold
-size 27
+  .videoContainerInfo p {
+    margin-left: 0;
+  }
 
-h5.listHeading
-open sans
-regular
-size 27
+  .wysiwygContainer {
+    width: 100%;
+    padding: 0 1rem;
+  }
 
-.quotee 
-open sans
-italic light (italic if white on blue)
-size 18
+  .gallery-slider {
+    position: relative;
+  }
 
+  .slick-arrow {
+    position: absolute;
+    bottom: 25%;
+  }
 
-body
-open sans
-regular (semi bold if white on blue)
-size 18 
+  .topToBottom > .textPicTextLandscape,
+  .bottomToTop > .textPicTextLandscape {
+    grid-column: 2 / 10;
+  }
 
+  .textPicPortrait {
+    flex-direction: column;
+    max-width: 80vw;
+  }
 
-CTA
-open sans
-semi bold
-size 20
- */
+  .textPicPortrait * {
+    width: 100%;
+  }
+
+  .whoWhere {
+    flex-direction: column;
+  }
+
+  .whoWhere > * {
+    margin-bottom: 2rem;
+  }
+}
+
+@media only screen and (max-width: 590px) {
+  .microCard {
+    width: 80%;
+  }
+
+  .gridLayout {
+    justify-content: space-around;
+  }
+
+  .wysiwygContainer p,
+  .wysiwygContainer h1,
+  .wysiwygContainer h4 {
+    max-width: 80ch;
+  }
+
+  .footerLeft img {
+    display: none;
+  }
+}
